@@ -1,0 +1,28 @@
+{
+  "name": "ms-auth-permissions",
+  "version": "1.0.0",
+  "description": "Content items micro-service",
+  "main": "./app/index.js",
+  "scripts": {
+    "dev": "sls offline"
+  },
+  "author": "https://github.com/jasonsaayman",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baseplay/ms-auth-permissions"
+  },
+  "dependencies": {
+    "@baseplay/models": "github:baseplay/pkg-models",
+    "@c8o/nimbus-core": "^1.0.0",
+    "dotenv": "^10.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb-language-model": "^2.3.0",
+    "mongoose": "^6.0.13",
+    "node-input-validator": "^4.5.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.3.1"
+  }
+}

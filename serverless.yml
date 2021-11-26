@@ -1,0 +1,44 @@
+org: baseplay
+app: auth
+service: ms-auth-permissions
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${env:SERVERLESS_AWS_REGION}
+  deploymentBucket:
+    name: ${env:SERVERLESS_AWS_DEPLOYMENT_BUCKET_NAME}
+  apiGateway:
+    restApiId: ${env:SERVERLESS_REST_API_ID}
+    restApiRootResourceId: ${env:SERVERLESS_REST_API_ROOT_RESOURCE_ID}
+    restApiResources:
+      /auth: ${env:SERVERLESS_REST_API_ROOT_RESOURCE_AUTH_ID}
+
+functions:
+  post:
+    handler: app.lambdaHandler
+    events:
+      - http:
+          path: /auth/permissions
+          method: get
+          cors: true
+      - http:
+          path: /auth/permissions
+          method: post
+          cors: true
+      - http:
+          path: /auth/permissions
+          method: patch
+          cors: true
+      - http:
+          path: /auth/permissions
+          method: delete
+          cors: true
+      - http:
+          path: /auth/permissions
+          method: options
+          cors: true
+
+plugins:
+  - serverless-offline
